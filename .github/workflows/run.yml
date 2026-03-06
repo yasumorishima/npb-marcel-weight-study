@@ -1,4 +1,5 @@
 name: Optimize Marcel Weights
+# Marcel weight grid search: w0/w1/w2 over NPB 2019-2025
 
 on:
   workflow_dispatch:
