@@ -161,7 +161,7 @@ def compute_marcel_hitter(df, target_year, weights, reg_pa, birthday_dict):
 
         # 平均回帰
         proj = {
-            c: (raw[c] * w_pa + lg_ref[c] * reg_pa) / (w_pa + reg_pa)
+            f"proj_{c}": (raw[c] * w_pa + lg_ref[c] * reg_pa) / (w_pa + reg_pa)
             for c in BATTER_RATE_COLS
         }
 
@@ -170,7 +170,7 @@ def compute_marcel_hitter(df, target_year, weights, reg_pa, birthday_dict):
         age = calc_age(bd, target_year) if bd is not None else np.nan
         adj = age_adj(age)
         for c in BATTER_RATE_COLS:
-            proj[c] += adj
+            proj[f"proj_{c}"] += adj
 
         proj["player"] = player
         proj["proj_PA"] = avg_pa
