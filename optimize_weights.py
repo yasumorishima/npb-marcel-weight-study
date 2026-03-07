@@ -536,10 +536,17 @@ def main():
         p_val = (diffs_era <= 0).mean()
         print(f"  投手ERA: mean={diffs_era.mean():.5f}  95%CI=[{ci_lo:.5f}, {ci_hi:.5f}]  p(best<=default)={p_val:.3f}")
 
-    # bootstrap結果を保存
+    # bootstrap結果を保存（長さが異なる場合はNaNでパディング）
+    n = max(len(diffs_ops), len(diffs_era), 1)
+    arr_ops = np.full(n, np.nan)
+    arr_era = np.full(n, np.nan)
+    if len(diffs_ops):
+        arr_ops[:len(diffs_ops)] = diffs_ops
+    if len(diffs_era):
+        arr_era[:len(diffs_era)] = diffs_era
     pd.DataFrame({
-        "diff_ops": diffs_ops if len(diffs_ops) else [np.nan],
-        "diff_era": diffs_era[:len(diffs_ops)] if len(diffs_era) else [np.nan],
+        "diff_ops": arr_ops,
+        "diff_era": arr_era,
     }).to_csv("results/bootstrap.csv", index=False, encoding="utf-8-sig")
 
     print("\n保存先: results/hitter_grid_full.csv / hitter_grid_no2020.csv")
