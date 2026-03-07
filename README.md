@@ -250,6 +250,11 @@ gh workflow run "Optimize Marcel Weights" --repo yasumorishima/npb-marcel-weight
 - 打者・投手成績: [yasumorishima/npb-prediction](https://github.com/yasumorishima/npb-prediction) — NPB公式データ（[baseball-data.com](https://baseball-data.com) + [npb.jp](https://npb.jp)）
 - 対象: 2015〜2025年
 
+## ブログ記事
+
+- [Marcel法の重みをNPBデータで最適化した（Zenn）](https://zenn.dev/shogaku/articles/npb-marcel-weight-optimization)
+- [Optimizing Marcel Projection Weights for NPB（DEV.to）](https://dev.to/yasumorishima/optimizing-marcel-projection-weights-for-npb-grid-search-bootstrap-validation)
+
 ## 関連プロジェクト
 
 - [npb-prediction](https://github.com/yasumorishima/npb-prediction): Marcel法によるNPB成績予測・順位予測
