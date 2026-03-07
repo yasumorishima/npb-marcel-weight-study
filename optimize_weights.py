@@ -17,12 +17,12 @@ import pandas as pd
 
 # ---- 設定 ----
 DATA_URL = (
-    "https://raw.githubusercontent.com/yasunorim/npb-prediction"
-    "/master/data/raw/npb_hitters_2015_2025.csv"
+    "https://raw.githubusercontent.com/yasumorishima/npb-prediction"
+    "/main/data/raw/npb_hitters_2015_2025.csv"
 )
 BIRTHDAY_URL = (
-    "https://raw.githubusercontent.com/yasunorim/npb-prediction"
-    "/master/data/raw/npb_player_birthdays.csv"
+    "https://raw.githubusercontent.com/yasumorishima/npb-prediction"
+    "/main/data/raw/npb_player_birthdays.csv"
 )
 
 REGRESSION_PA = 1200   # 平均回帰の強さ（PA基準）
