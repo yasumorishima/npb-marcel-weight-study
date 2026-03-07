@@ -33,6 +33,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add results/
           git diff --cached --quiet || git commit -m "add weight optimization results"
+          git pull --rebase origin master
           git push
 
       - name: Notify Discord (success)
