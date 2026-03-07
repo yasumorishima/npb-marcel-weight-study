@@ -30,3 +30,17 @@ jobs:
           git add results/
           git diff --cached --quiet || git commit -m "add weight optimization results"
           git push
+
+      - name: Notify Discord (success)
+        if: success()
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"content": "✅ **npb-marcel-weight-study** 完了\nグリッドサーチ + ブートストラップ終了。results/ を確認してください。\nhttps://github.com/yasumorishima/npb-marcel-weight-study/actions/runs/${{ github.run_id }}"}'
+
+      - name: Notify Discord (failure)
+        if: failure()
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"content": "❌ **npb-marcel-weight-study** 失敗\nhttps://github.com/yasumorishima/npb-marcel-weight-study/actions/runs/${{ github.run_id }}"}'
