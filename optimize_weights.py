@@ -485,14 +485,14 @@ def main():
         print(f"  最適: {best['weights_str']}  reg={int(best[reg_col])}  MAE={best[primary_col]:.5f}")
 
         if len(default_rows) > 0:
-            # MLBデフォルトと同じ重み+reg
+            # Marcel原典と同じ重み+reg
             def_row = default_rows[default_rows[reg_col] == default_reg]
             if len(def_row) == 0:
                 def_row = default_rows.iloc[[0]]
             d = def_row.iloc[0]
             rank = df_sorted[df_sorted["weights_str"] == default_weights].index[0] + 1
             improve = (d[primary_col] - best[primary_col]) / d[primary_col] * 100
-            print(f"  MLB基準(5/4/3, reg={default_reg}): MAE={d[primary_col]:.5f}  順位={rank}/{len(df_sorted)}")
+            print(f"  従来値(5/4/3, reg={default_reg}): MAE={d[primary_col]:.5f}  順位={rank}/{len(df_sorted)}")
             print(f"  改善率: {improve:.2f}%")
 
         cols = ["weights_str", reg_col, primary_col]
@@ -514,7 +514,7 @@ def main():
     best_h_row  = df_h_full_sorted.iloc[0]
     best_p_row  = df_p_full_sorted.iloc[0]
 
-    # default: 5/4/3 + MLB標準 reg
+    # default: 5/4/3 + 従来値 reg
     def_h_rows = df_h_full_sorted[df_h_full_sorted["weights_str"] == "5/4/3"]
     def_p_rows = df_p_full_sorted[df_p_full_sorted["weights_str"] == "5/4/3"]
     def_h_row  = def_h_rows[def_h_rows["reg_pa"] == 1200].iloc[0] if len(def_h_rows) > 0 else def_h_rows.iloc[0]
