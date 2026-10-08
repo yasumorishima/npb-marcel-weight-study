@@ -1,3 +1,7 @@
+> **This repository has moved (2026-10-08).** Everything in this repository, with its history, now lives at **https://github.com/yasumorishima/npb-prediction/tree/main/research/marcel-weights**. This repository is archived (read-only) so that existing links keep working; please open issues and pull requests there.
+>
+> **このリポジトリは移転しました（2026-10-08）。** 移転先: https://github.com/yasumorishima/npb-prediction/tree/main/research/marcel-weights
+
 # NPB Marcel Weight Study
 
 Marcel法のパラメータをNPBデータで最適化する検証プロジェクト。
